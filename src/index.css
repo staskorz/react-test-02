@@ -1,0 +1,22 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-image: url("/background.jpg");
+}
+
+.books-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.book {
+  background-image: url("/book.png");
+  width: 400px;
+  height: 600px;
+  margin: 20px;
+  font-family: "Apple Chancery", cursive, serif;
+  font-style: italic;
+  font-size: xx-large;
+}
