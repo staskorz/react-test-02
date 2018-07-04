@@ -12,9 +12,36 @@ export default () => (
         title="Title Title Title Title"
         publicationDate="1948"
       />
-      <div className="book" />
-      <div className="book" />
-      <div className="book" />
+      <Book
+        author="Author Author"
+        title="Title Title Title Title"
+        publicationDate="1948"
+      />
+      <Book
+        author="Author Author"
+        title="Title Title Title Title"
+        publicationDate="1948"
+      />
+      <Book
+        author="Author Author"
+        title="Title Title Title Title"
+        publicationDate="1948"
+      />
+      <Book
+        author="Author Author"
+        title="Title Title Title Title"
+        publicationDate="1948"
+      />
+      <Book
+        author="Author Author"
+        title="Title Title Title Title"
+        publicationDate="1948"
+      />
+      <Book
+        author="Author Author"
+        title="Title Title Title Title"
+        publicationDate="1948"
+      />
     </div>
   </div>
 )
