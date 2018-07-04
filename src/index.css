@@ -3,6 +3,7 @@ body {
   margin: 0;
   background-image: url("/background.jpg");
   text-align: center;
+  font-family: "Dancing Script", cursive;
 }
 
 .books-container {
@@ -18,9 +19,20 @@ body {
   width: 400px;
   height: 600px;
   margin: 20px;
-  font-family: "Apple Chancery", cursive, serif;
-  font-style: italic;
-  font-size: xx-large;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: #421a14f8;
+}
+
+.book .title {
+  font-size: 64px;
+}
+
+.book .author,
+.book .publication-date {
+  font-size: 40px;
 }
 
 @media only screen and (min-width: 900px) {
