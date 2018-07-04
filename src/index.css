@@ -6,6 +6,11 @@ body {
   font-family: "Dancing Script", cursive;
 }
 
+h1 {
+  font-size: 72px;
+  color: #806039;
+}
+
 .books-container {
   display: inline-flex;
   flex-wrap: wrap;
