@@ -1,0 +1,64 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-image: url("/background.jpg");
+  text-align: center;
+  font-family: "Dancing Script", cursive;
+}
+
+h1 {
+  font-size: 72px;
+  color: #806039;
+}
+
+.books-container {
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 440px;
+}
+
+.book {
+  background-image: url("/book.png");
+  width: 400px;
+  height: 600px;
+  margin: 20px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: #421a14f8;
+}
+
+.book .title {
+  font-size: 64px;
+  width: 340px;
+  margin-left: 16px;
+}
+
+.book .author,
+.book .publication-date {
+  font-size: 40px;
+  width: 340px;
+  margin-left: 16px;
+}
+
+@media only screen and (min-width: 900px) {
+  .books-container {
+    width: 880px;
+  }
+}
+
+@media only screen and (min-width: 1340px) {
+  .books-container {
+    width: 1320px;
+  }
+}
+
+@media only screen and (min-width: 1780px) {
+  .books-container {
+    width: 1760px;
+  }
+}
