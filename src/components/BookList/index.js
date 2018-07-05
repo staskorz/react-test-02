@@ -4,27 +4,23 @@ import mountYearFromDate from "../../util/month-year-from-date"
 
 import BookList from "./BookList"
 
+const transformBooksServerToClient = books =>
+  books.map(({ authorName, publicationDate, ...rest }) => ({
+    author: authorName,
+    publicationDate: mountYearFromDate(publicationDate),
+    ...rest,
+  }))
+
 const enhance = compose(
   withProps({
     books: [],
   }),
+
   lifecycle({
     componentDidMount() {
-      console.log("in componentDidMount()")
-      // const { setState } = this
-
       fetch("/fake-books.json")
-        .then(response => {
-          console.log(response)
-          return response.json()
-        })
-        .then(books =>
-          books.map(({ authorName, publicationDate, ...rest }) => ({
-            author: authorName,
-            publicationDate: mountYearFromDate(publicationDate),
-            ...rest,
-          })),
-        )
+        .then(response => response.json())
+        .then(transformBooksServerToClient)
         .then(books => this.setState({ books }))
     },
   }),
