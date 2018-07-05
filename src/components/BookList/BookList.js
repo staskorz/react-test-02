@@ -4,15 +4,19 @@ import PropTypes from "prop-types"
 import Book from "../Book"
 
 const Component = ({ books }) => (
-  <div className="books-container">
-    {books.map(({ id, author, title, publicationDate }) => (
-      <Book
-        key={id}
-        author={author}
-        title={title}
-        publicationDate={publicationDate}
-      />
-    ))}
+  <div>
+    <h1>Books</h1>
+
+    <div className="books-container">
+      {books.map(({ id, author, title, publicationDate }) => (
+        <Book
+          key={id}
+          author={author}
+          title={title}
+          publicationDate={publicationDate}
+        />
+      ))}
+    </div>
   </div>
 )
 
