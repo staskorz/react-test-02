@@ -11,6 +11,13 @@ h1 {
   color: #806039;
 }
 
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .books-container {
   display: inline-flex;
   flex-wrap: wrap;
