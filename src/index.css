@@ -57,28 +57,29 @@ h1 {
   font-family: DancingScriptBold;
 }
 
-.book .title {
-  font-size: 64px;
-  width: 340px;
-  margin-left: 16px;
-  text-transform: capitalize;
-  opacity: 0.85;
-}
-
 .book .author,
+.book .title,
 .book .publication-date {
-  font-size: 40px;
   width: 340px;
   margin-left: 16px;
-  opacity: 0.85;
 }
 
 .book .author {
-  margin-top: 20px;
+  margin-top: 70px;
+  font-size: 40px;
+  opacity: 0.75;
+}
+
+.book .title {
+  font-size: 64px;
+  opacity: 0.8;
+  text-transform: capitalize;
 }
 
 .book .publication-date {
-  margin-bottom: 20px;
+  margin-bottom: 70px;
+  font-size: 32px;
+  opacity: 0.8;
 }
 
 @media only screen and (min-width: 900px) {
