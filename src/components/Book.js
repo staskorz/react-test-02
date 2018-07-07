@@ -4,8 +4,17 @@ import propTypes from "prop-types"
 const component = ({ title, author, publicationDate }) => (
   <div className="book">
     <div className="author">{author}</div>
-    <div className="title">{title}</div>
+
+    <div className="title-container">
+      <div className="title">{title}</div>
+    </div>
+
     <div className="publication-date">{publicationDate}</div>
+
+    <div className="buttons">
+      <button>Edit</button>
+      <button>Delete</button>
+    </div>
   </div>
 )
 

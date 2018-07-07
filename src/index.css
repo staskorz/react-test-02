@@ -59,7 +59,8 @@ h1 {
 
 .book .author,
 .book .title,
-.book .publication-date {
+.book .publication-date,
+.book .buttons {
   width: 340px;
   margin-left: 16px;
 }
@@ -70,6 +71,13 @@ h1 {
   opacity: 0.75;
 }
 
+.book .title-container {
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .book .title {
   font-size: 64px;
   opacity: 0.8;
@@ -77,14 +85,45 @@ h1 {
 }
 
 .book .publication-date {
-  margin-bottom: 70px;
   font-size: 32px;
   opacity: 0.8;
+}
+
+.book .buttons {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.book .buttons button {
+  width: 100px;
+  height: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: #80603985;
+  color: #421a14f8;
+  border: 1px solid #421a14a4;
+  border-radius: 8px;
+  outline: none;
+  font-family: DancingScriptBold;
+  font-size: 24px;
+}
+
+.book .buttons button:hover {
+  background-color: #806039b6;
 }
 
 @media only screen and (min-width: 900px) {
   .books-container {
     width: 880px;
+  }
+
+  .book .buttons {
+    visibility: hidden;
+  }
+
+  .book:hover .buttons {
+    visibility: visible;
   }
 }
 
@@ -97,5 +136,11 @@ h1 {
 @media only screen and (min-width: 1780px) {
   .books-container {
     width: 1760px;
+  }
+}
+
+@media (hover: none) {
+  .book .buttons {
+    visibility: visible;
   }
 }
