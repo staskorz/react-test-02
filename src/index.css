@@ -62,6 +62,7 @@ h1 {
   width: 340px;
   margin-left: 16px;
   text-transform: capitalize;
+  opacity: 0.85;
 }
 
 .book .author,
@@ -69,6 +70,7 @@ h1 {
   font-size: 40px;
   width: 340px;
   margin-left: 16px;
+  opacity: 0.85;
 }
 
 .book .author {
