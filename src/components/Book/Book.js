@@ -1,7 +1,7 @@
 import React from "react"
 import propTypes from "prop-types"
 
-import Modal from "../Modal"
+import EditBookModal from "../EditBookModal"
 import DeleteConfirmationModal from "../DeleteConfirmationModal"
 
 const component = ({
@@ -33,7 +33,10 @@ const component = ({
     </div>
 
     {isEditModalOpen ? (
-      <Modal onClose={onEditModalClose}>Hello from Modal!!!</Modal>
+      <EditBookModal
+        onClose={onEditModalClose}
+        book={{ id, title, author, publicationDate }}
+      />
     ) : null}
 
     {isDeleteModalOpen ? (
