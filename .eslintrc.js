@@ -22,7 +22,8 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
-    "prettier",
+    "prettier/react",
+    "prettier/standard",
   ],
 
   plugins: ["prettier", "react"],
