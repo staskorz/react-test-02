@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 import Book from "../Book"
 
-const Component = ({ books }) => (
+const Component = ({ books, onBookDelete }) => (
   <div>
     <h1>Books</h1>
 
@@ -11,9 +11,11 @@ const Component = ({ books }) => (
       {books.map(({ id, author, title, publicationDate }) => (
         <Book
           key={id}
+          id={id}
           author={author}
           title={title}
           publicationDate={publicationDate}
+          onBookDelete={onBookDelete}
         />
       ))}
     </div>
@@ -29,6 +31,8 @@ Component.propTypes = {
       publicationDate: PropTypes.string,
     }),
   ).isRequired,
+
+  onBookDelete: PropTypes.func.isRequired,
 }
 
 export default Component

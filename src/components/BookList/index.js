@@ -4,6 +4,8 @@ import {
   lifecycle,
   branch,
   renderComponent,
+  withState,
+  withHandlers,
 } from "recompose"
 
 import mountYearFromDate from "../../util/month-year-from-date"
@@ -38,6 +40,17 @@ const enhance = compose(
   }),
 
   branch(({ loading }) => loading, renderComponent(Spinner)),
+
+  withState("books", "setBooks", ({ books }) => books),
+
+  withHandlers({
+    onBookDelete: ({ books, setBooks }) => event => {
+      const { id } = event.target.dataset
+      const numericBookId = parseInt(id, 10)
+
+      setBooks(books.filter(({ id }) => id !== numericBookId))
+    },
+  }),
 )
 
 export default enhance(BookList)
