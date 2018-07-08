@@ -1,7 +1,16 @@
 import React from "react"
 import propTypes from "prop-types"
 
-const component = ({ title, author, publicationDate }) => (
+import Modal from "../Modal"
+
+const component = ({
+  title,
+  author,
+  publicationDate,
+  isEditModalOpen,
+  openEditModal,
+  closeEditModal,
+}) => (
   <div className="book">
     <div className="author">{author}</div>
 
@@ -12,9 +21,13 @@ const component = ({ title, author, publicationDate }) => (
     <div className="publication-date">{publicationDate}</div>
 
     <div className="buttons">
-      <button>Edit</button>
+      <button onClick={openEditModal}>Edit</button>
       <button>Delete</button>
     </div>
+
+    {isEditModalOpen ? (
+      <Modal onClose={closeEditModal}>Hello from Modal!!!</Modal>
+    ) : null}
   </div>
 )
 
@@ -22,6 +35,9 @@ component.propTypes = {
   title: propTypes.string,
   author: propTypes.string,
   publicationDate: propTypes.string,
+  isEditModalOpen: propTypes.bool.isRequired,
+  openEditModal: propTypes.func.isRequired,
+  closeEditModal: propTypes.func.isRequired,
 }
 
 export default component
