@@ -10,8 +10,8 @@ const component = ({
   author,
   publicationDate,
   isEditModalOpen,
-  openEditModal,
-  closeEditModal,
+  onEditModalOpen,
+  onEditModalClose,
   onBookDelete,
   isDeleteModalOpen,
   onDeleteModalOpen,
@@ -27,13 +27,13 @@ const component = ({
     <div className="publication-date">{publicationDate}</div>
 
     <div className="buttons">
-      <button onClick={openEditModal}>Edit</button>
+      <button onClick={onEditModalOpen}>Edit</button>
 
       <button onClick={onDeleteModalOpen}>Delete</button>
     </div>
 
     {isEditModalOpen ? (
-      <Modal onClose={closeEditModal}>Hello from Modal!!!</Modal>
+      <Modal onClose={onEditModalClose}>Hello from Modal!!!</Modal>
     ) : null}
 
     {isDeleteModalOpen ? (
@@ -53,8 +53,8 @@ component.propTypes = {
   author: propTypes.string,
   publicationDate: propTypes.string,
   isEditModalOpen: propTypes.bool.isRequired,
-  openEditModal: propTypes.func.isRequired,
-  closeEditModal: propTypes.func.isRequired,
+  onEditModalOpen: propTypes.func.isRequired,
+  onEditModalClose: propTypes.func.isRequired,
   onBookDelete: propTypes.func.isRequired,
   isDeleteModalOpen: propTypes.bool.isRequired,
   onDeleteModalOpen: propTypes.func.isRequired,

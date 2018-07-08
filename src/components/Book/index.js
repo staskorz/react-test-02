@@ -10,11 +10,11 @@ const enhance = compose(
     },
 
     {
-      openEditModal: () => () => ({
+      onEditModalOpen: () => () => ({
         isEditModalOpen: true,
       }),
 
-      closeEditModal: () => () => ({
+      onEditModalClose: () => () => ({
         isEditModalOpen: false,
       }),
 
