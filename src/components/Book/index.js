@@ -6,7 +6,9 @@ const enhance = compose(
   withStateHandlers(
     {
       isEditModalOpen: false,
+      isDeleteModalOpen: false,
     },
+
     {
       openEditModal: () => () => ({
         isEditModalOpen: true,
@@ -14,6 +16,14 @@ const enhance = compose(
 
       closeEditModal: () => () => ({
         isEditModalOpen: false,
+      }),
+
+      onDeleteModalOpen: () => () => ({
+        isDeleteModalOpen: true,
+      }),
+
+      onDeleteModalClose: () => () => ({
+        isDeleteModalOpen: false,
       }),
     },
   ),
