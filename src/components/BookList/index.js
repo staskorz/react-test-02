@@ -50,6 +50,12 @@ const enhance = compose(
 
       setBooks(books.filter(({ id }) => id !== numericBookId))
     },
+
+    onBookEdit: ({ books, setBooks }) => modifiedBook => {
+      setBooks(
+        books.map(book => (book.id === modifiedBook.id ? modifiedBook : book)),
+      )
+    },
   }),
 )
 

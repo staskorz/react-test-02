@@ -17,8 +17,15 @@ const enhance = compose(
   ),
 
   withHandlers({
-    onSubmit: ({ id, author, title, publicationDate, onClose }) => () => {
-      console.log("book:", id, author, title, publicationDate)
+    onSubmit: ({
+      id,
+      author,
+      title,
+      publicationDate,
+      onBookEdit,
+      onClose,
+    }) => () => {
+      onBookEdit({ id, author, title, publicationDate })
 
       onClose()
     },

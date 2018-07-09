@@ -13,6 +13,7 @@ const component = ({
   onEditModalOpen,
   onEditModalClose,
   onBookDelete,
+  onBookEdit,
   isDeleteModalOpen,
   onDeleteModalOpen,
   onDeleteModalClose,
@@ -36,6 +37,7 @@ const component = ({
       <EditBookModal
         onClose={onEditModalClose}
         book={{ id, title, author, publicationDate }}
+        onBookEdit={onBookEdit}
       />
     ) : null}
 
@@ -59,6 +61,7 @@ component.propTypes = {
   onEditModalOpen: propTypes.func.isRequired,
   onEditModalClose: propTypes.func.isRequired,
   onBookDelete: propTypes.func.isRequired,
+  onBookEdit: propTypes.func.isRequired,
   isDeleteModalOpen: propTypes.bool.isRequired,
   onDeleteModalOpen: propTypes.func.isRequired,
   onDeleteModalClose: propTypes.func.isRequired,
