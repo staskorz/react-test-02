@@ -1,11 +1,13 @@
 import { compose, withProps, withStateHandlers } from "recompose"
+import moment from "moment"
 
 import Book from "./Book"
-import monthYearFromDate from "../../util/month-year-from-date"
+
+const formatDate = date => moment(date).format("MMMM D, YYYY")
 
 const enhance = compose(
   withProps(({ publicationDate }) => ({
-    publicationDateString: monthYearFromDate(publicationDate),
+    publicationDateString: formatDate(publicationDate),
   })),
 
   withStateHandlers(
