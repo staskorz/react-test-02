@@ -3,22 +3,22 @@ import PropTypes from "prop-types"
 
 import Modal from "./Modal"
 
-const Component = ({ bookId, onBookDelete, onDeleteModalClose }) => (
-  <Modal onClose={onDeleteModalClose}>
+const Component = ({ bookId, onBookDelete, onClose }) => (
+  <Modal onClose={onClose}>
     <p>Delete the book?</p>
 
     <button data-id={bookId} onClick={onBookDelete}>
       Ok
     </button>
 
-    <button onClick={onDeleteModalClose}>Cancel</button>
+    <button onClick={onClose}>Cancel</button>
   </Modal>
 )
 
 Component.propTypes = {
   bookId: PropTypes.number.isRequired,
   onBookDelete: PropTypes.func.isRequired,
-  onDeleteModalClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
 }
 
 export default Component

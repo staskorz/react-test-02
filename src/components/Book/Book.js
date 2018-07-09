@@ -43,10 +43,9 @@ const component = ({
 
     {isDeleteModalOpen ? (
       <DeleteConfirmationModal
+        onClose={onDeleteModalClose}
         bookId={id}
         onBookDelete={onBookDelete}
-        onClose={onDeleteModalClose}
-        onDeleteModalClose={onDeleteModalClose}
       />
     ) : null}
   </div>
