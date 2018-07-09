@@ -4,9 +4,9 @@ import {
   lifecycle,
   branch,
   renderComponent,
+  withState,
+  withHandlers,
 } from "recompose"
-
-import mountYearFromDate from "../../util/month-year-from-date"
 
 import Spinner from "../Spinner"
 import BookList from "./BookList"
@@ -14,7 +14,7 @@ import BookList from "./BookList"
 const transformBooksServerToClient = books =>
   books.map(({ authorName, publicationDate, ...rest }) => ({
     author: authorName,
-    publicationDate: mountYearFromDate(publicationDate),
+    publicationDate: new Date(publicationDate),
     ...rest,
   }))
 
@@ -38,6 +38,23 @@ const enhance = compose(
   }),
 
   branch(({ loading }) => loading, renderComponent(Spinner)),
+
+  withState("books", "setBooks", ({ books }) => books),
+
+  withHandlers({
+    onBookDelete: ({ books, setBooks }) => event => {
+      const { id } = event.target.dataset
+      const numericBookId = parseInt(id, 10)
+
+      setBooks(books.filter(({ id }) => id !== numericBookId))
+    },
+
+    onBookEdit: ({ books, setBooks }) => modifiedBook => {
+      setBooks(
+        books.map(book => (book.id === modifiedBook.id ? modifiedBook : book)),
+      )
+    },
+  }),
 )
 
 export default enhance(BookList)
