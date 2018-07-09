@@ -1,11 +1,18 @@
 import { compose, withStateHandlers, withHandlers } from "recompose"
+import moment from "moment"
 
 import EditBookModal from "./EditBookModal"
+
+const DATE_FORMAT = "YYYY-MM-DD"
+
+const dateToString = date => moment(date).format(DATE_FORMAT)
+const stringToDate = str => moment(str, DATE_FORMAT, true).toDate()
 
 const enhance = compose(
   withStateHandlers(
     ({ book }) => ({
       ...book,
+      publicationDate: dateToString(book.publicationDate),
     }),
     {
       onAuthorChange: () => event => ({ author: event.target.value }),
@@ -25,7 +32,12 @@ const enhance = compose(
       onBookEdit,
       onClose,
     }) => () => {
-      onBookEdit({ id, author, title, publicationDate })
+      onBookEdit({
+        id,
+        author,
+        title,
+        publicationDate: stringToDate(publicationDate),
+      })
 
       onClose()
     },
