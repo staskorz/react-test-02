@@ -9,6 +9,7 @@ const component = ({
   title,
   author,
   publicationDate,
+  publicationDateString,
   isEditModalOpen,
   onEditModalOpen,
   onEditModalClose,
@@ -25,7 +26,7 @@ const component = ({
       <div className="title">{title}</div>
     </div>
 
-    <div className="publication-date">{publicationDate}</div>
+    <div className="publication-date">{publicationDateString}</div>
 
     <div className="buttons">
       <button onClick={onEditModalOpen}>Edit</button>
@@ -55,7 +56,8 @@ component.propTypes = {
   id: propTypes.number,
   title: propTypes.string,
   author: propTypes.string,
-  publicationDate: propTypes.string,
+  publicationDate: propTypes.instanceOf(Date).isRequired,
+  publicationDateString: propTypes.string,
   isEditModalOpen: propTypes.bool.isRequired,
   onEditModalOpen: propTypes.func.isRequired,
   onEditModalClose: propTypes.func.isRequired,

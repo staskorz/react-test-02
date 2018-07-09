@@ -1,8 +1,13 @@
-import { compose, withStateHandlers } from "recompose"
+import { compose, withProps, withStateHandlers } from "recompose"
 
 import Book from "./Book"
+import monthYearFromDate from "../../util/month-year-from-date"
 
 const enhance = compose(
+  withProps(({ publicationDate }) => ({
+    publicationDateString: monthYearFromDate(publicationDate),
+  })),
+
   withStateHandlers(
     {
       isEditModalOpen: false,

@@ -88,7 +88,7 @@ Component.propTypes = {
   id: PropTypes.number.isRequired,
   author: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  publicationDate: PropTypes.string.isRequired,
+  publicationDate: PropTypes.instanceOf(Date).isRequired,
   onAuthorChange: PropTypes.func.isRequired,
   onTitleChange: PropTypes.func.isRequired,
   onPublicationDateChange: PropTypes.func.isRequired,

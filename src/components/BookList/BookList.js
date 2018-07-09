@@ -29,7 +29,7 @@ Component.propTypes = {
       id: PropTypes.number,
       author: PropTypes.string,
       title: PropTypes.string,
-      publicationDate: PropTypes.string,
+      publicationDate: PropTypes.instanceOf(Date).isRequired,
     }),
   ).isRequired,
 

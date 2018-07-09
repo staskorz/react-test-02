@@ -8,15 +8,13 @@ import {
   withHandlers,
 } from "recompose"
 
-import mountYearFromDate from "../../util/month-year-from-date"
-
 import Spinner from "../Spinner"
 import BookList from "./BookList"
 
 const transformBooksServerToClient = books =>
   books.map(({ authorName, publicationDate, ...rest }) => ({
     author: authorName,
-    publicationDate: mountYearFromDate(publicationDate),
+    publicationDate: new Date(publicationDate),
     ...rest,
   }))
 
