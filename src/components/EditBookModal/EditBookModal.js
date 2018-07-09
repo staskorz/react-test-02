@@ -2,9 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import Modal from "../Modal"
+import ValidationError from "../ValidationError"
 
 const Component = ({
-  id,
   author,
   title,
   publicationDate,
@@ -36,7 +36,7 @@ const Component = ({
             />
           </div>
 
-          <div className="validation-error">{authorValidationError}</div>
+          <ValidationError validationError={authorValidationError} />
         </div>
 
         <div>
@@ -53,7 +53,7 @@ const Component = ({
             />
           </div>
 
-          <div className="validation-error">{titleValidationError}</div>
+          <ValidationError validationError={titleValidationError} />
         </div>
 
         <div>
@@ -70,9 +70,7 @@ const Component = ({
             />
           </div>
 
-          <div className="validation-error">
-            {publicationDateValidationError}
-          </div>
+          <ValidationError validationError={publicationDateValidationError} />
         </div>
       </div>
 
@@ -85,7 +83,6 @@ const Component = ({
 )
 
 Component.propTypes = {
-  id: PropTypes.number.isRequired,
   author: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   publicationDate: PropTypes.string.isRequired,
@@ -93,6 +90,9 @@ Component.propTypes = {
   onTitleChange: PropTypes.func.isRequired,
   onPublicationDateChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
+  titleValidationError: PropTypes.string.isRequired,
+  authorValidationError: PropTypes.string.isRequired,
+  publicationDateValidationError: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
 }
 

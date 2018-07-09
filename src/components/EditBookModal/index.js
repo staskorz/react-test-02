@@ -1,5 +1,6 @@
 import { compose, withStateHandlers, withHandlers } from "recompose"
 import moment from "moment"
+import validator from "validator"
 
 import EditBookModal from "./EditBookModal"
 
@@ -13,9 +14,27 @@ const enhance = compose(
     ({ book }) => ({
       ...book,
       publicationDate: dateToString(book.publicationDate),
+      authorValidationError: "",
+      titleValidationError: "",
+      publicationDateValidationError: "",
     }),
     {
-      onAuthorChange: () => event => ({ author: event.target.value }),
+      onAuthorChange: () => event => {
+        const { value } = event.target
+
+        const authorValidationError = validator.isLength(value.trim(), {
+          min: 1,
+          max: 20,
+        })
+          ? ""
+          : "Must be between 1 and 20 characters"
+
+        return {
+          author: value,
+          authorValidationError,
+        }
+      },
+
       onTitleChange: () => event => ({ title: event.target.value }),
       onPublicationDateChange: () => event => ({
         publicationDate: event.target.value,
