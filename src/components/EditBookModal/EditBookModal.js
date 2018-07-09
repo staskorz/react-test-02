@@ -1,18 +1,20 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import Modal from "./Modal"
+import Modal from "../Modal"
 
 const Component = ({
-  book: {
-    id,
-    title,
-    author,
-    publicationDate,
-    titleValidationError,
-    authorValidationError,
-    publicationDateValidationError,
-  },
+  id,
+  author,
+  title,
+  publicationDate,
+  onAuthorChange,
+  onTitleChange,
+  onPublicationDateChange,
+  onSubmit,
+  titleValidationError,
+  authorValidationError,
+  publicationDateValidationError,
   onClose,
 }) => (
   <Modal onClose={onClose}>
@@ -26,7 +28,12 @@ const Component = ({
           </div>
 
           <div>
-            <input type="text" id="author" value={author} />
+            <input
+              type="text"
+              id="author"
+              value={author}
+              onChange={onAuthorChange}
+            />
           </div>
 
           <div className="validation-error">{authorValidationError}</div>
@@ -38,7 +45,12 @@ const Component = ({
           </div>
 
           <div>
-            <input type="text" id="title" value={title} />
+            <input
+              type="text"
+              id="title"
+              value={title}
+              onChange={onTitleChange}
+            />
           </div>
 
           <div className="validation-error">{titleValidationError}</div>
@@ -50,7 +62,12 @@ const Component = ({
           </div>
 
           <div>
-            <input type="text" id="date" value={publicationDate} />
+            <input
+              type="text"
+              id="date"
+              value={publicationDate}
+              onChange={onPublicationDateChange}
+            />
           </div>
 
           <div className="validation-error">
@@ -60,7 +77,7 @@ const Component = ({
       </div>
 
       <div>
-        <button>Submit</button>
+        <button onClick={onSubmit}>Submit</button>
         <button onClick={onClose}>Cancel</button>
       </div>
     </div>
@@ -68,13 +85,14 @@ const Component = ({
 )
 
 Component.propTypes = {
-  book: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-    publicationDate: PropTypes.string.isRequired,
-  }).isRequired,
-
+  id: PropTypes.number.isRequired,
+  author: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  publicationDate: PropTypes.string.isRequired,
+  onAuthorChange: PropTypes.func.isRequired,
+  onTitleChange: PropTypes.func.isRequired,
+  onPublicationDateChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
 }
 
