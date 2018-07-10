@@ -200,10 +200,14 @@ h1 {
 
   .book .buttons {
     visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.2s, opacity 0.2s linear;
   }
 
   .book:hover .buttons {
     visibility: visible;
+    opacity: 1;
+    transition: opacity 0.4s linear;
   }
 }
 
