@@ -85,8 +85,8 @@ const enhance = compose(
 
       onBookEdit({
         id,
-        author,
-        title,
+        author: author.trim(),
+        title: title.trim(),
         publicationDate: stringToDate(publicationDate),
       })
 
