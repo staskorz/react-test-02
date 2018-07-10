@@ -16,7 +16,8 @@ body {
 }
 
 h1 {
-  font-size: 72px;
+  font-size: 48px;
+  margin: 20px;
   color: #806039;
   font-family: WoodRelief;
   font-variant: small-caps;
@@ -41,14 +42,15 @@ h1 {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: flex-start;
-  width: 440px;
+  width: 360px;
 }
 
 .book {
   background-image: url("/book.png");
-  width: 400px;
-  height: 600px;
-  margin: 20px;
+  background-size: 100%;
+  width: 320px;
+  height: 480px;
+  margin: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -61,30 +63,30 @@ h1 {
 .book .title,
 .book .publication-date,
 .book .buttons {
-  width: 340px;
-  margin-left: 16px;
+  width: 272px;
+  margin-left: 12px;
 }
 
 .book .author {
-  margin-top: 70px;
-  font-size: 40px;
+  margin-top: 30px;
+  font-size: 32px;
   opacity: 0.75;
 }
 
 .book .title-container {
-  height: 320px;
+  height: 272px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .book .title {
-  font-size: 64px;
+  font-size: 48px;
   opacity: 0.8;
 }
 
 .book .publication-date {
-  font-size: 32px;
+  font-size: 24px;
   opacity: 0.8;
 }
 
@@ -133,11 +135,11 @@ h1 {
   color: #421a14f8;
   border: 1px solid #421a14f8;
   margin: auto;
-  padding: 20px;
+  padding: 16px;
   border-radius: 8px;
-  min-width: 400px;
-  max-width: 800px;
-  font-size: 40px;
+  min-width: 320px;
+  max-width: 640px;
+  font-size: 32px;
 }
 
 .modal .close {
@@ -156,21 +158,21 @@ h1 {
 }
 
 .edit-book-form {
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .edit-book-form .form-title {
-  font-size: 40px;
+  font-size: 32px;
 }
 
 .edit-book-form .form-controls {
-  width: 360px;
+  width: 288px;
   text-align: start;
-  margin: 20px;
+  margin: 16px;
 }
 
 .edit-book-form label {
-  font-size: 28px;
+  font-size: 22px;
   margin-left: 4px;
 }
 
@@ -180,7 +182,7 @@ h1 {
   color: #421a14f8;
   border: 1px solid #421a14f8;
   background: #f7eacf;
-  font-size: 20px;
+  font-size: 16px;
   padding: 3px 5px;
   box-sizing: border-box;
 }
@@ -194,17 +196,17 @@ h1 {
 }
 
 .fab {
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
-  font-size: 60px;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  font-size: 48px;
   color: #421a14f8;
-  border-radius: 30px;
+  border-radius: 24px;
   background-color: #e9dabc;
   border: 1px solid #421a14f8;
   position: fixed;
-  bottom: 20px;
-  right: 30px;
+  bottom: 12px;
+  right: 16px;
   cursor: pointer;
   box-shadow: 0 0 4px rgba(153, 113, 27, 0.14),
     0 4px 8px rgba(109, 70, 10, 0.486);
@@ -214,6 +216,85 @@ h1 {
   background-color: #d6c299;
 }
 
+@media only screen and (min-width: 440px) {
+  h1 {
+    font-size: 72px;
+    margin: 48px;
+  }
+
+  .books-container {
+    width: 440px;
+  }
+
+  .book {
+    width: 400px;
+    height: 600px;
+    margin: 20px;
+  }
+
+  .book .author,
+  .book .title,
+  .book .publication-date,
+  .book .buttons {
+    width: 340px;
+    margin-left: 16px;
+  }
+
+  .book .author {
+    margin-top: 70px;
+    font-size: 40px;
+  }
+
+  .book .title-container {
+    height: 320px;
+  }
+
+  .book .title {
+    font-size: 64px;
+  }
+
+  .book .publication-date {
+    font-size: 32px;
+  }
+
+  .modal-content {
+    padding: 20px;
+    min-width: 400px;
+    max-width: 800px;
+    font-size: 40px;
+  }
+
+  .edit-book-form {
+    font-size: 16px;
+  }
+
+  .edit-book-form .form-title {
+    font-size: 40px;
+  }
+
+  .edit-book-form .form-controls {
+    width: 360px;
+    margin: 20px;
+  }
+
+  .edit-book-form label {
+    font-size: 28px;
+  }
+
+  .edit-book-form input {
+    font-size: 20px;
+  }
+
+  .fab {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 60px;
+    border-radius: 30px;
+    bottom: 20px;
+    right: 30px;
+  }
+}
 @media only screen and (min-width: 900px) {
   .books-container {
     width: 880px;
