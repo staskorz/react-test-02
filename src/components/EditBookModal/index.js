@@ -9,6 +9,22 @@ const DATE_FORMAT = "YYYY-MM-DD"
 const dateToString = date => moment(date).format(DATE_FORMAT)
 const stringToDate = str => moment(str, DATE_FORMAT, true).toDate()
 
+const getValidationMessageForString = ({ value, min, max }) =>
+  validator.isLength(value.trim(), { min, max })
+    ? ""
+    : `Must be between ${min} and ${max} characters`
+
+const getValidationMessageForAuthor = value =>
+  getValidationMessageForString({ value, min: 1, max: 20 })
+
+const getValidationMessageForTitle = value =>
+  getValidationMessageForString({ value, min: 1, max: 30 })
+
+const getValidationMessageForPublicationDate = value =>
+  moment(value, DATE_FORMAT, true).isValid()
+    ? ""
+    : `Must be formatted as "${DATE_FORMAT}"`
+
 const enhance = compose(
   withStateHandlers(
     ({ book }) => ({
@@ -19,25 +35,21 @@ const enhance = compose(
       publicationDateValidationError: "",
     }),
     {
-      onAuthorChange: () => event => {
-        const { value } = event.target
+      onAuthorChange: () => ({ target: { value } }) => ({
+        author: value,
+        authorValidationError: getValidationMessageForAuthor(value),
+      }),
 
-        const authorValidationError = validator.isLength(value.trim(), {
-          min: 1,
-          max: 20,
-        })
-          ? ""
-          : "Must be between 1 and 20 characters"
+      onTitleChange: () => ({ target: { value } }) => ({
+        title: value,
+        titleValidationError: getValidationMessageForTitle(value),
+      }),
 
-        return {
-          author: value,
-          authorValidationError,
-        }
-      },
-
-      onTitleChange: () => event => ({ title: event.target.value }),
-      onPublicationDateChange: () => event => ({
-        publicationDate: event.target.value,
+      onPublicationDateChange: () => ({ target: { value } }) => ({
+        publicationDate: value,
+        publicationDateValidationError: getValidationMessageForPublicationDate(
+          value,
+        ),
       }),
     },
   ),
