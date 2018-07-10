@@ -2,8 +2,18 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import Book from "../Book"
+import FAB from "../FAB"
+import EditBookModal from "../EditBookModal"
 
-const Component = ({ books, onBookDelete, onBookEdit }) => (
+const Component = ({
+  books,
+  onBookDelete,
+  onBookEdit,
+  isAddModalOpen,
+  onAddModalOpen,
+  onAddModalClose,
+  onBookAdd,
+}) => (
   <div>
     <h1>Books</h1>
 
@@ -20,6 +30,21 @@ const Component = ({ books, onBookDelete, onBookEdit }) => (
         />
       ))}
     </div>
+
+    <FAB label="+" onClick={onAddModalOpen} />
+
+    {isAddModalOpen ? (
+      <EditBookModal
+        onClose={onAddModalClose}
+        book={{
+          id: books.length,
+          title: "",
+          author: "",
+          publicationDate: new Date(),
+        }}
+        onBookEdit={onBookAdd}
+      />
+    ) : null}
   </div>
 )
 
@@ -35,6 +60,10 @@ Component.propTypes = {
 
   onBookDelete: PropTypes.func.isRequired,
   onBookEdit: PropTypes.func.isRequired,
+  isAddModalOpen: PropTypes.bool.isRequired,
+  onAddModalOpen: PropTypes.func.isRequired,
+  onAddModalClose: PropTypes.func.isRequired,
+  onBookAdd: PropTypes.func.isRequired,
 }
 
 export default Component

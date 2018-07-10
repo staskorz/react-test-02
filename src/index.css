@@ -107,6 +107,7 @@ h1 {
   outline: none;
   font-family: DancingScriptBold;
   font-size: 24px;
+  cursor: pointer;
 }
 
 .book .buttons button:hover,
@@ -190,6 +191,27 @@ h1 {
   visibility: hidden;
   color: #c51515;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.fab {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 60px;
+  color: #421a14f8;
+  border-radius: 30px;
+  background-color: #e9dabc;
+  border: 1px solid #421a14f8;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(153, 113, 27, 0.14),
+    0 4px 8px rgba(109, 70, 10, 0.486);
+}
+
+.fab:hover {
+  background-color: #d6c299;
 }
 
 @media only screen and (min-width: 900px) {

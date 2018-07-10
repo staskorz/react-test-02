@@ -6,6 +6,7 @@ import {
   renderComponent,
   withState,
   withHandlers,
+  withStateHandlers,
 } from "recompose"
 
 import Spinner from "../Spinner"
@@ -54,7 +55,27 @@ const enhance = compose(
         books.map(book => (book.id === modifiedBook.id ? modifiedBook : book)),
       )
     },
+
+    onBookAdd: ({ books, setBooks }) => newBook => {
+      setBooks([newBook, ...books])
+    },
   }),
+
+  withStateHandlers(
+    {
+      isAddModalOpen: false,
+    },
+
+    {
+      onAddModalOpen: () => () => ({
+        isAddModalOpen: true,
+      }),
+
+      onAddModalClose: () => () => ({
+        isAddModalOpen: false,
+      }),
+    },
+  ),
 )
 
 export default enhance(BookList)
