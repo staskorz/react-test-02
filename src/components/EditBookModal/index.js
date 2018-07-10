@@ -18,7 +18,7 @@ const getValidationMessageForAuthor = value =>
   getValidationMessageForString({ value, min: 1, max: 20 })
 
 const getValidationMessageForTitle = value =>
-  getValidationMessageForString({ value, min: 1, max: 30 })
+  getValidationMessageForString({ value, min: 1, max: 40 })
 
 const getValidationMessageForPublicationDate = value =>
   moment(value, DATE_FORMAT, true).isValid()
