@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import Book from "../Book"
+import FAB from "../FAB"
 
 const Component = ({ books, onBookDelete, onBookEdit }) => (
   <div>
@@ -20,6 +21,8 @@ const Component = ({ books, onBookDelete, onBookEdit }) => (
         />
       ))}
     </div>
+
+    <FAB label="+" onClick={() => console.log("Clicked!!")} />
   </div>
 )
 
