@@ -3,12 +3,13 @@ import moment from "moment"
 
 import Book from "./Book"
 import firstUpperRestLowerWords from "../../util/first-upper-rest-lower-words"
+import alnumOnly from "../../util/alnum-only"
 
 const formatDate = date => moment(date).format("MMMM D, YYYY")
 
 const enhance = compose(
   withProps(({ title, publicationDate }) => ({
-    title: firstUpperRestLowerWords(title),
+    title: firstUpperRestLowerWords(alnumOnly(title)),
     publicationDateString: formatDate(publicationDate),
   })),
 
