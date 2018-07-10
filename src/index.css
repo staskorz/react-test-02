@@ -107,6 +107,7 @@ h1 {
   outline: none;
   font-family: DancingScriptBold;
   font-size: 24px;
+  cursor: pointer;
 }
 
 .book .buttons button:hover,
