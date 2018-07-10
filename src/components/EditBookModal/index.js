@@ -62,7 +62,25 @@ const enhance = compose(
       publicationDate,
       onBookEdit,
       onClose,
+      onAuthorChange,
+      onTitleChange,
+      onPublicationDateChange,
     }) => () => {
+      // trigger all validation messages to be displayed
+      // required for displaying validation messages for untouched fields
+      onAuthorChange({ target: { value: author } })
+      onTitleChange({ target: { value: title } })
+      onPublicationDateChange({ target: { value: publicationDate } })
+
+      // do not save if one of the validations fails
+      if (
+        getValidationMessageForAuthor(author) ||
+        getValidationMessageForTitle(title) ||
+        getValidationMessageForPublicationDate(publicationDate)
+      ) {
+        return
+      }
+
       onBookEdit({
         id,
         author,
