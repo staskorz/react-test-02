@@ -81,7 +81,6 @@ h1 {
 .book .title {
   font-size: 64px;
   opacity: 0.8;
-  text-transform: capitalize;
 }
 
 .book .publication-date {
