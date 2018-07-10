@@ -76,7 +76,10 @@ const Component = ({
 
       <div>
         <button type="submit">Submit</button>
-        <button onClick={onClose}>Cancel</button>
+
+        <button type="button" onClick={onClose}>
+          Cancel
+        </button>
       </div>
     </form>
   </Modal>
