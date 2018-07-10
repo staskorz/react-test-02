@@ -18,7 +18,7 @@ const Component = ({
   onClose,
 }) => (
   <Modal onClose={onClose}>
-    <div className="edit-book-form">
+    <form className="edit-book-form" onSubmit={onSubmit}>
       <div className="form-title">Edit book</div>
 
       <div className="form-controls">
@@ -75,10 +75,10 @@ const Component = ({
       </div>
 
       <div>
-        <button onClick={onSubmit}>Submit</button>
+        <button type="submit">Submit</button>
         <button onClick={onClose}>Cancel</button>
       </div>
-    </div>
+    </form>
   </Modal>
 )
 

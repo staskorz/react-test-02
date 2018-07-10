@@ -65,7 +65,9 @@ const enhance = compose(
       onAuthorChange,
       onTitleChange,
       onPublicationDateChange,
-    }) => () => {
+    }) => event => {
+      event.preventDefault()
+
       // trigger all validation messages to be displayed
       // required for displaying validation messages for untouched fields
       onAuthorChange({ target: { value: author } })
