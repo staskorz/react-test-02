@@ -26,7 +26,7 @@ const enhance = compose(
 
   lifecycle({
     componentDidMount() {
-      fetch("/fake-books.json")
+      fetch("fake-books.json")
         .then(response => response.json())
         .then(transformBooksServerToClient)
         .then(books =>
