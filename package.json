@@ -16,7 +16,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "css-urls-to-relative": "sed -i \"s/\\burl(\\\"\\//url(\\\"..\\/..\\//g\" build/static/css/*.css",
+    "predeploy": "npm run build && npm run css-urls-to-relative",
     "deploy": "gh-pages -d build"
   },
   "devDependencies": {
