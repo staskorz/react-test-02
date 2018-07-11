@@ -115,6 +115,13 @@ h1 {
 .book .buttons button:hover,
 .modal button:hover {
   background-color: #806039b6;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .modal {
