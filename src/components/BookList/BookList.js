@@ -37,7 +37,7 @@ const Component = ({
       <EditBookModal
         onClose={onAddModalClose}
         book={{
-          id: books.length,
+          id: Date.now(),
           title: "",
           author: "",
           publicationDate: new Date(),
